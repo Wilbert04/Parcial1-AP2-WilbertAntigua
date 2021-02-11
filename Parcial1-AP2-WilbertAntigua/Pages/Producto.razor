@@ -37,14 +37,18 @@
                 <div class="= form-group">
                     <label> Existencia </label>
                     <InputNumber @bind-Value=" productos.Existencia" class="form-control"> </InputNumber>
-                    <ValidationMessage For=@ (()=> productos.Existencia) </ValidationMessage>
                 </div>
 
                 @*Costo*@
                 <div class="= form-group">
                     <label> Costo </label>
-                    <InputNumber @bind-Value=" productos.Costo" class="form-control"> </InputNumber>
-                    <ValidationMessage For=@ (()=> productos.Existencia) </ValidationMessage>
+                    <InputNumber @bind-Value=" productos.ValorInvertario" class="form-control"> </InputNumber>
+                    
+                </div>
+
+                <div class=" form-group">
+                    <label> Valor Inventario</label>
+
                 </div>
 
             </form>
@@ -59,5 +63,6 @@
 
 
 @code {
+
 
 }
