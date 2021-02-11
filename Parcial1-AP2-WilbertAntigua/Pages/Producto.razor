@@ -2,8 +2,61 @@
 @page "/Producto{ ProductoId:int}"
 
 
+<EditForm Model=" productos" OnInvalidSubmit="Guardar">
+    <DataAnnotationsValidator />
 
-<h3>Producto</h3>
+    <div class=" card">
+        <div class="card-header">
+            <h3>Registo Productos</h3>
+        </div>
+        
+        <div class=" card-body">
+            <form>
+                <div class=" form-row align-items-center">
+                    <div class="col">
+                        <div class=" form-group">
+                            <label> ProductoId </label>
+                            <div class=" input-group">
+                                <InputNumber @bind-Value=" productos.ProductoId" class=" form-control col-4"></InputNumber>
+                                <div class="input-group-append">
+                                    <button type="button" class=" btn btn-primary input-group-text" @onclick="Buscar"> Buscar </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                @*Descripcion*@
+                <div class=" form-group">
+                    <label> Descripcion </label>
+                    <InputText @bind-Value=" productos.Descripcion" class="form-control" />
+
+                </div>
+
+                @*Existencia*@
+                <div class="= form-group">
+                    <label> Existencia </label>
+                    <InputNumber @bind-Value=" productos.Existencia" class="form-control"> </InputNumber>
+                    <ValidationMessage For=@ (()=> productos.Existencia) </ValidationMessage>
+                </div>
+
+                @*Costo*@
+                <div class="= form-group">
+                    <label> Costo </label>
+                    <InputNumber @bind-Value=" productos.Costo" class="form-control"> </InputNumber>
+                    <ValidationMessage For=@ (()=> productos.Existencia) </ValidationMessage>
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+</EditForm>
+
+
 
 @code {
 
