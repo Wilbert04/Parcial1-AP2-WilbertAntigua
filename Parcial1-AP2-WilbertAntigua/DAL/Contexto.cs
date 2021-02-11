@@ -14,7 +14,7 @@ namespace Parcial1_AP2_WilbertAntigua.DAL
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlite(@" Data Source=DATA\ProductoDB.db");
+            optionsBuilder.UseSqlite(@"Data Source=DATA\ProductoDB1.db");
         }
     }
 }
