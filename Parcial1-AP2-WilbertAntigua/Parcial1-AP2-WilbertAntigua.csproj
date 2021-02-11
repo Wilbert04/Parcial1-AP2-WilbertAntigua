@@ -7,19 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Migrations\**" />
-    <Content Remove="Migrations\**" />
-    <EmbeddedResource Remove="Migrations\**" />
-    <None Remove="Migrations\**" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Include="Migrations\20210211030516_Inicial.cs" />
-    <Compile Include="Migrations\20210211030516_Inicial.Designer.cs" />
-    <Compile Include="Migrations\ContextoModelSnapshot.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Blazored.Toast" Version="3.1.2" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqLite" Version="5.0.3" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.3">

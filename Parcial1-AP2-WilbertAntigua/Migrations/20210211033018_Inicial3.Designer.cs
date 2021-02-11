@@ -8,8 +8,8 @@ using Parcial1_AP2_WilbertAntigua.DAL;
 namespace Parcial1_AP2_WilbertAntigua.Migrations
 {
     [DbContext(typeof(Contexto))]
-    [Migration("20210211030516_Inicial")]
-    partial class Inicial
+    [Migration("20210211033018_Inicial3")]
+    partial class Inicial3
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

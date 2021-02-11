@@ -10,49 +10,27 @@ namespace Parcial1_AP2_WilbertAntigua.BLL
 {
     public class ProductosBLL
     {
-        public static bool Guardar (Productos productos)
+
+        public static bool Guardar(Productos productos)
         {
             if (!Existe(productos.ProductoId))
-                return Insectar(productos);
+                return Insertar(productos);
             else
             {
                 return Modificar(productos);
             }
-
         }
 
-        private static bool Insectar( Productos productos)
+
+        private static bool Insertar(Productos productos)
         {
             bool paso = false;
             Contexto db = new Contexto();
+
             try
             {
                 db.productos.Add(productos);
                 paso = db.SaveChanges() > 0;
-
-            }
-            catch(Exception)
-            {
-                throw;
-            }
-            finally
-            {
-                db.Dispose();
-
-            }
-            return paso;
-
-        }
-
-        public static bool Modificar(Productos productos)
-        {
-            bool paso = false;
-            Contexto db = new Contexto();
-            try
-            {
-                db.Entry(productos).State = EntityState.Modified;
-                paso = db.SaveChanges() > 0;
-
             }
             catch (Exception)
             {
@@ -61,8 +39,31 @@ namespace Parcial1_AP2_WilbertAntigua.BLL
             finally
             {
                 db.Dispose();
-
             }
+
+            return paso;
+        }
+
+
+        public static bool Modificar(Productos productos)
+        {
+            bool paso = false;
+            Contexto db = new Contexto();
+
+            try
+            {
+                db.Entry(productos).State = EntityState.Modified;
+                paso = db.SaveChanges() > 0;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                db.Dispose();
+            }
+
             return paso;
 
         }
@@ -71,12 +72,13 @@ namespace Parcial1_AP2_WilbertAntigua.BLL
         {
             bool paso = false;
             Contexto db = new Contexto();
+
+
             try
             {
                 var eliminar = db.productos.Find(id);
                 db.Entry(eliminar).State = EntityState.Deleted;
                 paso = db.SaveChanges() > 0;
-
             }
             catch (Exception)
             {
@@ -85,21 +87,19 @@ namespace Parcial1_AP2_WilbertAntigua.BLL
             finally
             {
                 db.Dispose();
-
             }
-            return paso;
 
+            return paso;
         }
 
         public static Productos Buscar(int id)
         {
+
             Contexto db = new Contexto();
             Productos productos = new Productos();
-
             try
             {
                 productos = db.productos.Find(id);
-
             }
             catch (Exception)
             {
@@ -115,7 +115,6 @@ namespace Parcial1_AP2_WilbertAntigua.BLL
 
         public static bool Existe(int id)
         {
-
             bool encontrado = false;
             Contexto db = new Contexto();
 
@@ -135,5 +134,6 @@ namespace Parcial1_AP2_WilbertAntigua.BLL
             return encontrado;
         }
 
-    }
+    }  
+
 }

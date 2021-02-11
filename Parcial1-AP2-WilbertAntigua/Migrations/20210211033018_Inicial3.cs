@@ -2,7 +2,7 @@
 
 namespace Parcial1_AP2_WilbertAntigua.Migrations
 {
-    public partial class Inicial : Migration
+    public partial class Inicial3 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

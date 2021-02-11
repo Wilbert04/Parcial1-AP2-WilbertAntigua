@@ -8,13 +8,12 @@ using System.Threading.Tasks;
 namespace Parcial1_AP2_WilbertAntigua.DAL
 {
     public class Contexto : DbContext
-    { 
-        
-        public DbSet< Productos> productos { get; set; }
+    {
+        public DbSet<Productos> productos { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlite(@"Data Source=DATA\ProductoDB1.db");
+            optionsBuilder.UseSqlite(@"Data Source=DATA\ProductoDB3.db");
         }
     }
 }
