@@ -1,6 +1,7 @@
 ﻿@page "/Producto"
 @page "/Producto{ ProductoId:int}"
 
+@inject IToastService Toast
 
 <EditForm Model=" productos" OnInvalidSubmit="Guardar">
     <DataAnnotationsValidator />
@@ -64,5 +65,77 @@
 
 @code {
 
+    private Productos productos = new Productos();
+    [Parameter]
+    public int ProductoId { get; set; }
 
+    protected override void OnInitialized()
+    {
+        Nuevo();
+        Buscar();
+    }
+
+    private void Nuevo()
+    {
+        productos = new Productos();
+    }
+
+    private void Buscar()
+    {
+        if (productos.ProductoId > 0)
+        {
+            var encontrado = ProductosBLL.Buscar(productos.ProductoId);
+
+            if(encontrado != null)
+            {
+                this.productos = encontrado;
+            }
+            else
+            {
+                Toast.ShowInfo("No encontrado...");
+                Nuevo();
+            }
+
+        }
+    }
+
+    private void Guardar()
+    {
+        bool guardo;
+        guardo = ProductosBLL.Guardar(productos);
+
+        if (guardo)
+        {
+            Nuevo();
+            Toast.ShowSuccess("Guardado Correctamente!");
+        }
+        else
+        {
+            Toast.ShowError("No fue posible guardar!!");
+        }
+
+    }
+
+    private void Eliminar()
+    {
+        bool elimino;
+        elimino = ProductosBLL.Eliminar(productos.ProductoId);
+
+        if (elimino)
+        {
+            Nuevo();
+            Toast.ShowSuccess("Eliminado Correctamente");
+
+        }
+        else
+        {
+            Toast.ShowSuccess("No se pudo eliminar");
+        }
+
+    }
+
+    private void Inventario()
+    {
+        productos.ValorInvertario = productos.Existencia * productos.Costo;
+    }
 }

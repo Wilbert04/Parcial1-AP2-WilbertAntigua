@@ -44,7 +44,7 @@ namespace Parcial1_AP2_WilbertAntigua.BLL
 
         }
 
-        private static bool Modificar(Productos productos)
+        public static bool Modificar(Productos productos)
         {
             bool paso = false;
             Contexto db = new Contexto();
@@ -67,7 +67,7 @@ namespace Parcial1_AP2_WilbertAntigua.BLL
 
         }
 
-        private static bool Eliminar(int id)
+        public static bool Eliminar(int id)
         {
             bool paso = false;
             Contexto db = new Contexto();
